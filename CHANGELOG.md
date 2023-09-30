@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.1.4] - 2023-09-30
+
+[v0.1.4]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.4
+
+### Added
+
+- Tried to add an ARM64 version of the image.
+
 ## [v0.1.3] - 2023-09-30
 
 [v0.1.3]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.3
