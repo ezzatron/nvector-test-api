@@ -1,4 +1,6 @@
 DOCKER_REPO ?= ghcr.io/ezzatron/nvector-test-api
+DOCKER_PLATFORMS += linux/amd64
+DOCKER_PLATFORMS += linux/arm64
 
 CHANGELOG_TAG_URL_PREFIX := https://github.com/ezzatron/nvector-test-api/releases/tag/
 
