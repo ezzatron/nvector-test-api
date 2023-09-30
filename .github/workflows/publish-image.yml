@@ -31,5 +31,5 @@ jobs:
 
       - name: Build and push Docker image
         env:
-          DOCKER_TAGS: ${{ github.ref_name }}
+          DOCKER_TAGS: ${{ github.ref_name }} latest
         run: make docker-push
