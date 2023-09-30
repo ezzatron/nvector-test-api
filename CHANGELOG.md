@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.1.5] - 2023-09-30
+
+[v0.1.5]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.5
+
+### Fixed
+
+- Setup Docker buildx to attempt to fix multi-platform image building.
+
 ## [v0.1.4] - 2023-09-30
 
 [v0.1.4]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.4
