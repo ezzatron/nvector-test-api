@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+
+import asyncio
+import json
+import numpy as np
+from nvector import lat_lon2n_E, n_E2lat_lon
+import websockets
+
+
+async def handle_websocket(websocket):
+    try:
+        async for message in websocket:
+            req = json.loads(message)
+
+            try:
+                if req["fn"] == "ready":
+                    result = True
+                elif req["fn"] == "lat_lon2n_E":
+                    result = lat_lon2n_E(**req["args"]).tolist()
+                elif req["fn"] == "n_E2lat_lon":
+                    [latitude], [longitude] = n_E2lat_lon(np.array(req["args"]["n_E"]))
+                    result = {"latitude": latitude, "longitude": longitude}
+                else:
+                    await websocket.send(
+                        json.dumps({"id": req["id"], "error": "Unknown function"})
+                    )
+                    continue
+
+                await websocket.send(json.dumps({"id": req["id"], "result": result}))
+            except Exception as e:
+                await websocket.send(json.dumps({"id": req["id"], "error": str(e)}))
+    except websockets.exceptions.ConnectionClosed:
+        pass
+
+
+async def main():
+    print("Listening on 8000")
+    async with websockets.serve(handle_websocket, "0.0.0.0", 8000):
+        try:
+            await asyncio.Future()
+        except asyncio.exceptions.CancelledError:
+            pass
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

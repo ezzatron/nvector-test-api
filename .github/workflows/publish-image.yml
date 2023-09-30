@@ -1,0 +1,20 @@
+name: Publish image
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish image
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and push Docker image
+        env:
+          DOCKER_TAGS: ${{ github.ref_name }}
+        run: make docker-push
