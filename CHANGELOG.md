@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.1.7] - 2024-04-26
+
+[v0.1.7]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.7
+
+### Added
+
+- Added support for rotation matrix (`R_Ee`) arguments to the `lat_lon2n_E` and
+  `n_E2lat_lon` functions.
+
 ## [v0.1.6] - 2023-09-30
 
 [v0.1.6]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.6
