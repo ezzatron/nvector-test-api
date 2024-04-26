@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.2.0] - 2024-04-26
+
+[v0.2.0]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.2.0
+
+### Added
+
+- Added the `n_EB_E2p_EB_E` function.
+- Added the `p_EB_E2n_EB_E` function.
+
 ## [v0.1.7] - 2024-04-26
 
 [v0.1.7]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.1.7
