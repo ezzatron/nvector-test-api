@@ -61,7 +61,12 @@ async def handle_websocket(websocket):
                     if "R_Ee" in req["args"]:
                         args["R_Ee"] = np.array(req["args"]["R_Ee"])
 
-                    result = p_EB_E2n_EB_E(**args).tolist()
+                    n_EB_E, [depth] = p_EB_E2n_EB_E(**args)
+
+                    if np.isnan(n_EB_E).any():
+                        raise ValueError("Result contains NaN")
+
+                    result = {"n_EB_E": n_EB_E.tolist(), "depth": depth}
 
                 else:
                     await websocket.send(
