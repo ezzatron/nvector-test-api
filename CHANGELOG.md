@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.2.1] - 2024-04-27
+
+[v0.2.1]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.2.1
+
+### Fixed
+
+- Fixed optional argument handling.
+
 ## [v0.2.0] - 2024-04-26
 
 [v0.2.0]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.2.0
