@@ -6,6 +6,8 @@ import numpy as np
 from nvector import (
     lat_lon2n_E,
     n_E2lat_lon,
+    n_EA_E_and_n_EB_E2p_AB_E,
+    n_EA_E_and_p_AB_E2n_EB_E,
     n_EB_E2p_EB_E,
     p_EB_E2n_EB_E,
 )
@@ -38,6 +40,41 @@ async def handle_websocket(websocket):
 
                     [latitude], [longitude] = n_E2lat_lon(**args)
                     result = {"latitude": latitude, "longitude": longitude}
+
+                elif req["fn"] == "n_EA_E_and_n_EB_E2p_AB_E":
+                    args = {
+                        "n_EA_E": np.array(req["args"]["n_EA_E"]),
+                        "n_EB_E": np.array(req["args"]["n_EB_E"]),
+                    }
+                    if "z_EA" in req["args"]:
+                        args["z_EA"] = req["args"]["z_EA"]
+                    if "z_EB" in req["args"]:
+                        args["z_EB"] = req["args"]["z_EB"]
+                    if "a" in req["args"]:
+                        args["a"] = req["args"]["a"]
+                    if "f" in req["args"]:
+                        args["f"] = req["args"]["f"]
+                    if "R_Ee" in req["args"]:
+                        args["R_Ee"] = np.array(req["args"]["R_Ee"])
+
+                    result = n_EA_E_and_n_EB_E2p_AB_E(**args).tolist()
+
+                elif req["fn"] == "n_EA_E_and_p_AB_E2n_EB_E":
+                    args = {
+                        "n_EA_E": np.array(req["args"]["n_EA_E"]),
+                        "p_AB_E": np.array(req["args"]["p_AB_E"]),
+                    }
+                    if "z_EA" in req["args"]:
+                        args["z_EA"] = req["args"]["z_EA"]
+                    if "a" in req["args"]:
+                        args["a"] = req["args"]["a"]
+                    if "f" in req["args"]:
+                        args["f"] = req["args"]["f"]
+                    if "R_Ee" in req["args"]:
+                        args["R_Ee"] = np.array(req["args"]["R_Ee"])
+
+                    n_EB_E, z_EB = n_EA_E_and_p_AB_E2n_EB_E(**args)
+                    result = {"n_EB_E": n_EB_E, "z_EB": z_EB}
 
                 elif req["fn"] == "n_EB_E2p_EB_E":
                     args = {"n_EB_E": np.array(req["args"]["n_EB_E"])}
