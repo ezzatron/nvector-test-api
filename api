@@ -125,13 +125,13 @@ async def handle_websocket(websocket):
                     args = {"R_AB": np.array(req["args"]["R_AB"])}
 
                     x, y, z = R2xyz(**args)
-                    result = {"x": x, "y": y, "z": z}
+                    result = {"x": x.item(), "y": y.item(), "z": z.item()}
 
                 elif req["fn"] == "R2zyx":
                     args = {"R_AB": np.array(req["args"]["R_AB"])}
 
                     z, y, x = R2zyx(**args).tolist()
-                    result = {"z": z, "y": y, "x": x}
+                    result = {"z": z.item(), "y": y.item(), "x": x.item()}
 
                 elif req["fn"] == "xyz2R":
                     args = {
