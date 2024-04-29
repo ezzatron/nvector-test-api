@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.7.0] - 2024-04-29
+
+[v0.7.0]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.7.0
+
+### Added
+
+- Added the `R2xyz` function
+- Added the `R2zyx` function
+- Added the `xyz2R` function
+- Added the `zyx2R` function
+
 ## [v0.6.0] - 2024-04-29
 
 [v0.6.0]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.6.0
