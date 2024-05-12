@@ -195,7 +195,7 @@ async def handle_websocket(websocket):
 
 
 async def main():
-    print("Listening on 8000")
+    print("Listening")
     async with websockets.serve(handle_websocket, "0.0.0.0", 8000):
         try:
             await asyncio.Future()
