@@ -9,14 +9,14 @@ package].
 
 Run the server:
 
-    docker run --rm -it -p 8000:8000 ghcr.io/ezzatron/nvector-test-api
+    docker run --rm -it -p 17357:8000 ghcr.io/ezzatron/nvector-test-api
 
 Call a function:
 
 ```js
 import WebSocket from "ws";
 
-const ws = new WebSocket("ws://localhost:8000");
+const ws = new WebSocket("ws://localhost:17357");
 
 ws.on("open", () => {
   ws.on("message", (data) => {
