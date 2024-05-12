@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [v0.8.1] - 2024-05-12
+
+[v0.8.1]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.8.1
+
+### Fixed
+
+- Added a workaround for a weird edge case in `n_E2lat_lon`, when `n_E` is
+  `[1, 0, 0]`, and the rotation matrix is the identity matrix. When the
+  Python `nvector` lib is run locally, this produces a longitude of Pi. When the
+  same code was called in the context of this API, it produced a longitude of
+  zero. No clue why, not worth investigating. Every other implementation also
+  returns a longitude of Pi, so this API now hard-codes that value for this
+  edge case.
+
 ## [v0.8.0] - 2024-05-03
 
 [v0.8.0]: https://github.com/ezzatron/nvector-test-api/releases/tag/v0.8.0
