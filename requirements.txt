@@ -1,4 +1,4 @@
 asyncio==4.0.0
 numpy==2.3.5
-nvector==1.0.1
+nvector==1.0.2
 websockets==15.0.1
